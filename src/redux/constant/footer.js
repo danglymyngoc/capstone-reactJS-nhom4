@@ -1,0 +1,1 @@
+export const SET_FOOTER = 'SET_FOOTER'

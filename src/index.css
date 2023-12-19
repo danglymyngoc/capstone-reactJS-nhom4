@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+.container-fluid{ 
+    width: 95% ;
+    margin: 0 auto ;
+}
+.btn-theme{
+    @apply transition border-2 border-black px-5 py-2 rounded hover:border-orange-500 hover:bg-orange-300 hover:text-white
+}
+.ant-table-wrapper .ant-table-pagination{
+    display: none;
+}
+.ant-table-thead{
+    display: none;
+}
