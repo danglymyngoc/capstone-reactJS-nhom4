@@ -1,0 +1,6 @@
+.modal-body {
+  background-color: #fff;
+  padding: 45px 40px;
+  z-index: 300;
+  width: 100vw;
+}

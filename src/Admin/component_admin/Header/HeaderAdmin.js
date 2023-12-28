@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { USER_INFO } from "../../service/config";
 import {
   Avatar,
   Dropdown,
@@ -8,32 +7,22 @@ import {
   DropdownHeader,
   DropdownItem,
 } from "flowbite-react";
-
-export default function Header() {
+import { USER_INFO } from "../../../service/config";
+export default function HeaderAdmin() {
   let navigate = useNavigate();
   let user = useSelector((state) => state.loginReducer.user);
 
   let renderMenu = () => {
     if (user) {
       return (
-        <>
-          {/* <div className="flex items-center">
-                    <div style={{ borderRadius: '50%' }} >
-
-                        <img style={{ display: 'block', borderRadius: '50%' }} className='w-10 pr-3 ' src="https://i.pravatar.cc/" alt="" />
-                    </div>
-                    <span className='pr-10'>{user.hoTen}</span>
-                    <button
-                        className='btn-theme'
-                        onClick={() => {
-                            window.location.href = '/'
-                            localStorage.removeItem(USER_INFO)
-                        }}
-                    >Logout</button>
-                    <button onClick={() => {
-                        navigate('/user-profile')
-                    }} className='btn-theme'>Lịch sử đặt vé</button>
-                </div> */}
+        <div className="flex">
+          <p className="my-2 mr-5 font-semibold display-inline">
+            <span className="text-2xl font-semibold text-red-500 cursor-pointer animate-pulse ">
+              CyberFlix
+            </span>
+            <p> </p>
+            xin chào quản trị viên
+          </p>
           <Dropdown
             label={
               <Avatar
@@ -57,14 +46,7 @@ export default function Header() {
             </DropdownItem>
 
             <DropdownDivider />
-            <DropdownItem
-              onClick={() => {
-                window.location.href = "/admin";
-                // localStorage.removeItem(ACCESS_TOKEN)
-              }}
-            >
-              Trang quản trị
-            </DropdownItem>
+
             <DropdownItem
               onClick={() => {
                 window.location.href = "/";
@@ -75,7 +57,7 @@ export default function Header() {
               Đăng xuất
             </DropdownItem>
           </Dropdown>
-        </>
+        </div>
       );
     } else {
       return (
@@ -91,15 +73,7 @@ export default function Header() {
     }
   };
   return (
-    <div className="container flex items-center justify-between h-20">
-      <span
-        onClick={() => {
-          navigate("/");
-        }}
-        className="text-2xl font-semibold text-red-500 cursor-pointer animate-pulse "
-      >
-        CyberFlix
-      </span>
+    <div className="container flex items-center justify-end h-20">
       <div>{renderMenu()}</div>
     </div>
   );
