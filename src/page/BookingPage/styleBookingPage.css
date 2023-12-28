@@ -18,7 +18,7 @@
 }
 
 .screen{
-    border-bottom: 30px solid rgb(255, 159, 95);
+    border-bottom: 30px solid red;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     height: 10px;
@@ -30,9 +30,9 @@
 
 
 .gheDuocChon {
-    border: 3px solid grey;
-    background: grey;
-    color: #000;
+    border: 3px solid rgba(128, 128, 128, 0.9);
+    background: rgba(128, 128, 128, 0.9);
+    color: black;
     cursor: no-drop !important;
     border-radius: 5px;
     width: 35px;
@@ -53,10 +53,12 @@
     margin-left: 1%;
     margin-bottom: 1%;
     line-height: 0px;
+    font-size: smaller;
+    font-weight: bold;
 }
 .ghe{
-    border: 3px solid rgba(128, 128, 128, 0.274);
-    background-color: rgba(128, 128, 128, 0.274);
+    border: 3px solid white;
+    background-color: white;
     width: 35px;
     height: 25px;
     margin-left: 1%;
@@ -64,10 +66,12 @@
     border-radius: 5px;
     cursor: pointer;
     line-height: 0px;
+    font-size: smaller;
+    font-weight: bold;
 }
 .gheVip{
-    border: 3px solid orange;
-    background-color: orange;
+    border: 3px solid red;
+    background-color: red;
     width: 35px;
     height: 25px;
     margin-left: 1%;
@@ -75,4 +79,63 @@
     border-radius: 5px;
     cursor: pointer;
     line-height: 0px;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+
+/* mobile */
+.gheDuocChon_M {
+    border: 3px solid rgba(128, 128, 128, 0.9);
+    background: rgba(128, 128, 128, 0.9);
+    color: black;
+    cursor: no-drop !important;
+    border-radius: 5px;
+    width: 25px;
+    height: 18px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    line-height: 0px;
+    font-size: 10px;
+}
+
+.gheDangChon_M {
+    background: rgb(109, 238, 109);
+    border: 3px solid rgb(109, 238, 109);
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 25px;
+    height: 18px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    line-height: 0px;
+    font-size: smaller;
+    font-weight: bold;
+}
+.ghe_M{
+    border: 3px solid white;
+    background-color: white;
+    width: 25px;
+    height: 18px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 0px;
+    font-size: smaller;
+    font-weight: bold;
+}
+.gheVip_M{
+    border: 3px solid red;
+    background-color: red;
+    width: 25px;
+    height: 18px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 0px;
+    font-size: smaller;
+    font-weight: bold;
 }

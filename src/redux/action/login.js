@@ -21,12 +21,11 @@ export const setUserLoginAction = (values, navigate) => {
 
                 const dataJson = JSON.stringify(result.data.content)
                 localStorage.setItem(USER_INFO, dataJson)
-
-                // const dataToken = JSON.stringify(result.data.content.accessToken)
-                // localStorage.setItem(ACCESS_TOKEN, dataToken)
-
                 message.success('Đăng nhập thành công')
-                navigate('/')
+                setTimeout(() => {
+
+                    navigate('/')
+                }, 2000)
 
                 dispatch({ type: TURN_OFF_LOADING })
             }).catch((err) => {

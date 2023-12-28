@@ -4,6 +4,10 @@ import {
     Input,
     Select,
 } from 'antd';
+
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { setUserRegisterAction } from '../../redux/action/register';
 /*
 {
   "taiKhoan": "string",
@@ -46,10 +50,13 @@ const tailFormItemLayout = {
         },
     },
 };
+
 const FormRegister = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [form] = Form.useForm();
     const onFinish = (values) => {
-        console.log('Received values of form: ', values);
+        dispatch(setUserRegisterAction(values, navigate))
     };
 
     return (
@@ -63,7 +70,9 @@ const FormRegister = () => {
                 prefix: '86',
             }}
             style={{
-                maxWidth: 600,
+                width: 500,
+                maxWidth: 350,
+
             }}
             scrollToFirstError
         >
@@ -77,9 +86,8 @@ const FormRegister = () => {
                         message: 'Tài khoản không được bỏ trống!',
                     },
                 ]}
-
             >
-                <Input />
+                <Input className='pt-1 pb-1 rounded-md' />
             </Form.Item>
             {/* matKhau */}
             <Form.Item
@@ -110,7 +118,21 @@ const FormRegister = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input className='pt-1 pb-1 rounded-md' />
+            </Form.Item>
+            {/* hoTen */}
+            <Form.Item
+                name="hoTen"
+                label="Họ và tên"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Họ và tên không được bỏ trống!',
+                    },
+                ]}
+
+            >
+                <Input className='pt-1 pb-1 rounded-md' />
             </Form.Item>
             {/* soDt */}
             <Form.Item
@@ -127,7 +149,7 @@ const FormRegister = () => {
                     }
                 ]}
             >
-                <Input />
+                <Input className='pt-1 pb-1 rounded-md' />
             </Form.Item>
             {/* maNhom */}
             <Form.Item
@@ -155,6 +177,10 @@ const FormRegister = () => {
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
                 <button className='btn-theme'>Đăng ký</button>
+                <br />
+                Bạn đã có tài khoản? <NavLink style={{ textDecoration: 'underline' }} to='/login'>
+                    Đăng nhập
+                </NavLink>
             </Form.Item>
         </Form>
     );

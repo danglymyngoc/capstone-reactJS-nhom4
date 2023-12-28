@@ -1,7 +1,13 @@
 import axios from "axios";
 import { DOMAIN, TOKEN, TOKEN_BEARER, USER_INFO } from "./config";
 
+export const httpsRegister = axios.create({
+    baseURL: DOMAIN,
+    headers: {
+        TokenCybersoft: TOKEN,
 
+    }
+})
 
 const https = axios.create({
     baseURL: DOMAIN,

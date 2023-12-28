@@ -1,5 +1,5 @@
 
-import { DAT_GHE, DAT_LAI_GHE, SET_DANH_SACH_GHE, SET_THONG_TIN_PHIM } from "../constant/booking"
+import { DAT_GHE, DAT_LAI_GHE, DAT_VE, SET_DANH_SACH_GHE, SET_THONG_TIN_PHIM } from "../constant/booking"
 
 const initialState = {
     thongTinPhim: {
@@ -44,6 +44,11 @@ export default (state = initialState, action) => {
             danhSachGheClone[index].daDat = false
             state.danhSachGhe = danhSachGheClone
             state.danhSachGheDuocChon = DSGheDuocChonClone
+            return { ...state }
+        }
+        case DAT_VE: {
+
+            state.danhSachGheDuocChon = []
             return { ...state }
         }
         default:

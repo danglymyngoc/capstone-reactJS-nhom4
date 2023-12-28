@@ -10,7 +10,7 @@ export default function Banner() {
         dispatch(setBannerAction())
     }, [])
     const contentStyle = {
-        height: '600px',
+        height: '90vh',
         color: '#fff',
         lineHeight: '160px',
         textAlign: 'center',
@@ -30,7 +30,7 @@ export default function Banner() {
     }
     return (
         <div>
-            <Carousel effect="scrollx" autoplaySpeed={2000} autoplay='true' >
+            <Carousel effect="scrollx" autoplaySpeed={2000} autoplay='true'  >
                 {renderImg()}
             </Carousel>
         </div>
