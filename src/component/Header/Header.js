@@ -1,3 +1,5 @@
+
+
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
@@ -86,10 +88,12 @@ export default function Header() {
                     <a
 
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer"
+
                         onClick={() => {
                             window.location.href = '/'
                             localStorage.removeItem(USER_INFO)
                         }}
+
                     >
                         Đăng xuất
                     </a>
@@ -198,4 +202,5 @@ export default function Header() {
             </header>
         </div>
     )
+
 }
