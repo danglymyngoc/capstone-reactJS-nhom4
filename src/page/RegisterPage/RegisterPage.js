@@ -1,17 +1,36 @@
 import React from 'react'
-import ImgAnimate from '../LoginPage/ImgAnimate.json'
-import Lottie from 'lottie-react'
-import FormRegister from './FormRegister'
+import { useMediaQuery } from 'react-responsive'
+import DeskTopRegister from './DeskTopRegister'
+import TabletRegister from './TabletRegister'
+
+const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 })
+    return isDesktop ? children : null
+}
+const Tablet = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+    return isTablet ? children : null
+}
+const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 })
+    return isMobile ? children : null
+}
+const Default = ({ children }) => {
+    const isNotMobile = useMediaQuery({ minWidth: 768 })
+    return isNotMobile ? children : null
+}
 export default function RegisterPage() {
     return (
-        <div className='grid grid-cols-12 container'>
-            <div className="col-span-7" style={{ height: '100vh' }}>
-                {/* <Lottie animationData={ImgAnimate} /> */}
-            </div>
-            <div className='col-span-5'>
-                <h2>Đăng ký</h2>
-                <FormRegister />
-            </div>
+        <div>
+            <Desktop>
+                <DeskTopRegister />
+            </Desktop>
+            <Tablet>
+                <TabletRegister />
+            </Tablet>
+            <Mobile>
+                <TabletRegister />
+            </Mobile>
         </div>
     )
 }

@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { setMovieScheduleAction } from '../../../redux/action/detail'
 import { USER_INFO } from '../../../service/config'
 
-export default function MovieSchedule() {
+export default function MobileMovieSchedule() {
     const { idFilm } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -21,16 +21,19 @@ export default function MovieSchedule() {
             <h2 className='text-2xl text-red-600 text-center mb-10 font-semibold '>Lịch chiếu</h2>
 
             <Tabs
-                tabPosition='left'
+                tabPosition='top'
                 defaultActiveKey="1"
                 style={{
-                    height: 300
+                    height: 300,
+
                 }}
-                className='overflow-y-scroll border '
+                className='overflow-y-scroll border flex items-center'
                 items={movieSchedule?.heThongRapChieu?.map((heThong, index) => {
                     return {
                         key: index,
-                        label: <img className='w-16 border-b py-2' src={heThong.logo} alt="" />,
+                        label: <div className=' w-full mx-auto'>
+                            <img className='w-16 py-2' src={heThong.logo} alt="" />
+                        </div>,
                         children: <Tabs
                             style={{ height: 300 }}
                             className='overflow-y-scroll'
@@ -38,7 +41,7 @@ export default function MovieSchedule() {
                             items={heThong.cumRapChieu.map(cumRap => {
                                 return {
                                     key: cumRap.diaChi,
-                                    label: <div className='w-52 truncate text-left border-b p-3'>
+                                    label: <div className='w-40 truncate text-left border-b p-3'>
                                         <Tooltip title={cumRap.diaChi}>
                                             <p>{cumRap.tenCumRap}</p>
                                         </Tooltip>
@@ -47,8 +50,8 @@ export default function MovieSchedule() {
                                         {cumRap.lichChieuPhim.map((phim) => {
                                             return <div className=' border-b p-3'>
 
-                                                <div className='p-5 space-y-2 '>
-                                                    <h2 className='text-2xl font-semibold'>{phim.tenRap}</h2>
+                                                <div className='p-3 space-y-2 '>
+                                                    <h2 className='text-xl font-semibold'>{phim.tenRap}</h2>
                                                     <h3 className='font-medium'>Thời lượng: <span>{phim.thoiLuong}p</span></h3>
                                                     <div className='space-y-3'>
                                                         <span

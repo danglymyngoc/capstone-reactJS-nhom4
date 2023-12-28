@@ -22,14 +22,17 @@ export const setMovieRatingAction = (idFilm) => {
 
 export const setMovieScheduleAction = (idFilm) => {
     return dispatch => {
+        dispatch({ type: TURN_ON_LOADING })
         https.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${idFilm}`)
             .then((result) => {
                 dispatch({
                     type: SET_MOVIE_SCHEDULE,
                     payload: result.data.content
                 })
+                dispatch({ type: TURN_OFF_LOADING })
             }).catch((err) => {
                 console.log(err)
+                dispatch({ type: TURN_OFF_LOADING })
             });
     }
 }

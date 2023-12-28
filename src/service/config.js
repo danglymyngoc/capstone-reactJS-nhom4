@@ -4,3 +4,5 @@ export const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y
 export const USER_INFO = 'USER_INFO'
 
 export const TOKEN_BEARER = 'Bearer ' + JSON.parse(localStorage.getItem(USER_INFO))?.accessToken
+
+

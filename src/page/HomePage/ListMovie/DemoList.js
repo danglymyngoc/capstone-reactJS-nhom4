@@ -1,5 +1,3 @@
-
-
 import React, { useEffect } from 'react'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -23,16 +21,16 @@ export default function DemoList() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 3,
-
+        className: 'text-center',
         dots: false,
     };
     const settings1 = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 3,
         centerMode: false,
         className: 'center',

@@ -4,44 +4,49 @@ import { setThongTinDatVeAction } from '../../redux/action/userProfile'
 import moment from 'moment'
 
 
+
 export default function LichSuDatVe() {
-    console.log('render');
     const dispatch = useDispatch()
-
     const thongTinDatVe = useSelector(state => state.userProfileReducer.thongTinDatVe)
-
-    console.log(thongTinDatVe, 'thongTinDatVe');
-
+    console.log(thongTinDatVe)
     useEffect(() => {
         dispatch(setThongTinDatVeAction())
-        console.log('useEffect')
     }, [])
+    console.log(thongTinDatVe.danhSachGhe, 'danhSachGhe')
+
     return (
-
-        <div>
-
-            {thongTinDatVe.map((item, index) => {
-                return <div key={index} className="max-w-md p-8 sm:flex sm:space-x-6 bg-gray-50 text-gray-800">
-                    <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
-                        <img src={item.hinhAnh} alt className="object-cover object-center w-full h-full rounded bg-gray-500" />
-                    </div>
-                    <div className="flex flex-col space-y-4">
-                        <div>
-                            <h2 className="text-2xl font-semibold">{item.tenPhim}</h2>
-                            <span className="text-sm text-gray-600">Ngày đặt: {moment(`${item.ngayDat}`).format('DD/MM/YYYY - hh:mm')}</span>
-                        </div>
-                        <div className="space-y-1">
-                            {item.danhSachGhe?.map((dsg) => {
-                                return <span className="text-gray-600">
-                                    {dsg.tenHeThongRap} <br /> {dsg.tenCumRap} - Ghế {dsg.tenGhe}
-                                </span>
-
-                            })}
-
-                        </div>
-                    </div>
+        <div className=''>
+            <div className='p-3 m-2 bg-white rounded-lg'>
+                <div className='mb-3 border-b-2 pb-3'>
+                    <h1 className='text-lg leading-6 font-semibold text-gray-900'>Lịch sử đặt vé</h1>
                 </div>
-            })}
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-12 h-96 overflow-y-auto'>
+                    {thongTinDatVe.length > 0 ? (
+                        thongTinDatVe.map((item, index) => (
+                            <div key={index}>
+                                <p className='font-semibold'>Ngày đặt: {moment(item.ngayDat).format("DD-MM-YYYY | hh:mm")}</p>
+                                <p className='font-semibold text-xl text-[#fb4226]'>Tên phim: {item.tenPhim}</p>
+                                <p className='font-medium'>
+                                    Thời lượng: {item.thoiLuongPhim} phút, Giá vé: {item.giaVe.toLocaleString()} VND
+                                </p>
+                                <p className='font-semibold text-xl text-[#008000]'>{item.danhSachGhe[0].tenHeThongRap}</p>
+                                <p className='font-medium'>
+                                    {item.danhSachGhe[0].tenCumRap}, Ghế:{" "}
+                                    {item.danhSachGhe.map((itemChild, indexChild) => (
+                                        <span key={indexChild}>
+                                            {itemChild.tenGhe}
+                                            {indexChild === item.danhSachGhe.length - 1 ? "." : ", "}
+                                        </span>
+                                    ))}
+                                </p>
+                            </div>
+                        ))
+                    ) : (
+                        <p className='font-semibold'>Không có vé nào được đặt</p>
+                    )}
+                </div>
+            </div>
+
         </div>
     )
 }

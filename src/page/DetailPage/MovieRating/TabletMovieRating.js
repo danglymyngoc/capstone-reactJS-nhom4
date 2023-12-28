@@ -9,12 +9,12 @@ const conicColors = {
     '50%': '#ffe58f',
     '100%': '#ffccc7',
 };
-export default function MovieRating({ movieRating }) {
+export default function TabletMovieRating({ movieRating }) {
 
     return (
         <div className='container mt-10'>
             <div className=' grid grid-cols-12'>
-                <div className='col-span-4 mr-10'>
+                <div className='col-span-4 mr-5'>
                     <img style={{ width: '100%', height: '100%' }} src={movieRating.hinhAnh} alt="" />
                 </div>
                 <div className='col-span-4 space-y-3' >
@@ -27,9 +27,9 @@ export default function MovieRating({ movieRating }) {
                     <div className='flex justify-center items-center flex-col'>
                         <Space >
 
-                            <Progress type="circle" percent={movieRating.danhGia * 10} strokeColor={conicColors} format={(percent) => `${percent / 20}/${percent / 20}`} size={250} />
+                            <Progress type="circle" percent={movieRating.danhGia * 10} strokeColor={conicColors} format={(percent) => `${percent / 20}/${percent / 20}`} size={150} />
                         </Space>
-                        <Rate className='text-3xl mt-5' allowHalf value={movieRating.danhGia / 2} count={5} disabled />
+                        <Rate className='text-2xl mt-5' allowHalf value={movieRating.danhGia / 2} count={5} disabled />
                     </div>
                 </div>
             </div>
