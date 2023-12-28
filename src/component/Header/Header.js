@@ -1,4 +1,4 @@
-
+import { message } from 'antd'
 
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
@@ -39,7 +39,13 @@ export default function Header() {
                     <DropdownItem onClick={() => {
                         navigate('/user-profile')
                     }}>Thông tin cá nhân & Lịch sử đặt vé</DropdownItem>
-
+                    <DropdownItem onClick={() => {
+                        if (JSON.parse(localStorage.getItem(USER_INFO)).maLoaiNguoiDung == 'QuanTri') {
+                            navigate('/admin')
+                        } else {
+                            message.error('Không đủ quyền truy cập, vui lòng đăng nhập lại!')
+                        }
+                    }}>Đến trang quản trị</DropdownItem>
                     <DropdownDivider />
                     <DropdownItem onClick={() => {
                         window.location.href = '/'
