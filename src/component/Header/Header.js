@@ -89,7 +89,20 @@ export default function Header() {
                             navigate('/user-profile')
                         }}
                     >
-                        Thông tin cá nhân
+                        Thông tin cá nhân & Lịch sử đặt vé
+                    </a>
+                    <a
+
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer"
+                        onClick={() => {
+                            if (JSON.parse(localStorage.getItem(USER_INFO)).maLoaiNguoiDung == 'QuanTri') {
+                                navigate('/admin')
+                            } else {
+                                message.error('Không đủ quyền truy cập, vui lòng đăng nhập lại!')
+                            }
+                        }}
+                    >
+                        Đến trang quản trị
                     </a>
                     <a
 
